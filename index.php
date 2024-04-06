@@ -27,8 +27,9 @@
                             $id = $_SESSION['id'];
                             $result = mysqli_query($connection, "SELECT * FROM tbluseraccount WHERE acctid='$id'");
                             $row = mysqli_fetch_assoc($result);
-                            echo '
-                            Welcome ' . $row['username'] . '
+                            echo ' Welcome ' . $row['username'] . '
+							<br><br>
+                            <a href="product.php">Product Page</a>
                             <a href="logout.php">Logout</a>';
                         }
             	?>

@@ -77,28 +77,24 @@ form .input-box span.details {
     border-color: #9b59b6;
 }
 
-button{
-   height: 45px;
-   margin: 35px 0
- }
 
-button input{
-   height: 100%;
-   width: 100%;
-   border-radius: 5px;
-   border: none;
-   color: #fff;
-   font-size: 18px;
-   font-weight: 500;
-   letter-spacing: 1px;
-   cursor: pointer;
-   transition: all 0.3s ease;
-   background: #452711;
- }
- button input:hover{
-  /* transform: scale(0.99); */
-  background: #66350F;
+form .btnLogin{
+    height: 45px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #452711;
   }
+  form .btnLogin:hover{
+   /* transform: scale(0.99); */
+   background: #66350F;
+   }
 
 @media(max-width: 584px) {
     .container {
