@@ -2,13 +2,13 @@
     include 'connect.php';
 ?>
 		<title>Coffee Connoisseur's Club</title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style_index.css">
 	
 		<header>
-            <a href="index.php">
-				<img src="images/Logo with Background.png" alt="Logo" style="width:20%">
-			</a>
-			<h1>Coffee Connoisseur's Club</h1>
+            <div href="index.php" class = "img-wrap">
+				<img src="images/Logo with Background.png" alt="Logo">
+			</div>
+
 			
 		</header>
 		<nav>
