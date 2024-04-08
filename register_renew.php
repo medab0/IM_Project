@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="css/style_register_renew.css">
-
+<title>Register</title>
 <div class="rounded-box">
     <div class="form-container">
     <h2 class ="form-title">Register</h2>
@@ -52,7 +52,7 @@
     <div class="alternative-register">
         <p> or sign up with </p>
 </div>
-    <div class="image-container">
+    <div class="icon-container">
             <img src="images/google-logo.svg" class="icon" alt="Google">
             <img src="images/fb-logo.svg" class="icon" alt="Facebook">
             <img src="images/outlook-logo.svg" class="icon" alt="Outlook">

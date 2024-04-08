@@ -3,15 +3,15 @@
 ?>
 
 <link rel="stylesheet" href="css/style_index_renew.css">
-
+<title>C.C.C</title>
 <div class="rounded-box">
     <div class="upper-content">
         <div class="image-container">
             <img src="images/Logo with Background.png" alt="Logo">
         </div>
         <div class="nav-container">
-            <a href="register.php">Register</a>
-            <a href="login.php">Login</a>
+            <a href="register_renew.php">Register</a>
+            <a href="login_renew.php">Login</a>
             <a href="About Us.php">About Us</a>
             <a href="Contact Us.php">Contact Us</a>
         </div>

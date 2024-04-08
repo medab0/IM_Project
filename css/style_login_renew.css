@@ -1,4 +1,3 @@
-
 body {
     background-image: url('../images/bg_img.jpg');
     background-repeat: none;
@@ -6,8 +5,8 @@ body {
     font-family: 'Poppins',sans-serif;
 }
 
-.rounded-box {
-    width: 50%;
+.rounded-box{
+    width:50%;
     background-color: #f2f2f2;
     padding: 10px 20px 0 20px;
     border-radius: 25px;
@@ -16,31 +15,37 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
-.form-title{
-    margin-top: 0;
-    padding: 0 10px;
-    font-size: 25px;
-    font-weight: 500;
-}
-.form-container {
-    padding: 20px 20px 0 20px;
-    border-radius: 25px;
-    background-color: #f2f2f2;
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
 }
 
-.forms{
+.image-container img{
+    width: 100%;
+}
+
+.form-container {
+    padding: 20px;
+    border-radius: 25px;
+    background-color: #f2f2f2;
+    flex: 1;
     display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 0;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .form-group {
     margin-bottom: 10px;
-    width: 100%;
+}
+
+form{
+    margin-bottom: 0;
 }
 
 label {
@@ -48,18 +53,22 @@ label {
     margin-bottom: 5px;
 }
 
-input,
-select {
+input, button {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    height: 45px;
+    font-weight:    ;
+    font-size: 16px;
 }
 
+
+
 button {
+    margin: 10px 0;
     width: 100%;
     padding: 10px;
-    margin: 10px;
     background-color: #4CAF50;
     color: #fff;
     border: none;
@@ -69,22 +78,6 @@ button {
 
 button:hover {
     background-color: #45a049;
-}
-
-.content {
-    width: calc(100% / 2 - 20px);
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;    
-}
-
-.content input, select, button{
-  height: 45px;
-  width: 100%;
-  outline: none;
-  font-size: 16px;
-  border-radius: 5px;
-  padding-left: 15px;
 }
 
 .line {
@@ -106,7 +99,7 @@ button:hover {
     display: flex;
     justify-content: space-between;
     margin: 20px auto;
-    width:  30%;
+    width:  50%;
 }
 
 .icon {
