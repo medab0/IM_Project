@@ -1,10 +1,8 @@
+<?php
+    include 'connect.php';
+?>
+
 <link rel="stylesheet" href="css/style_index_renew.css">
-	
-<!-- 
-<div class="rounded-box">
-    <h1>Welcome to Coffee Connoisseur's Club</h1>
-    <p>Here you can find the best coffee in town!</p>
-</div> -->
 
 <div class="rounded-box">
     <div class="upper-content">
