@@ -17,7 +17,7 @@
                 </div>
                 <button type="submit">Login</button>
             </form>
-
+            <!-- <p class="register-redirect"> Don't have an account? <a href="login_renew.php">Click here.</a></p> -->
             <div class="line"></div>
         <div class="alternative-register">
             <p> or login with </p>
@@ -27,8 +27,9 @@
                 <img src="images/fb-logo.svg" class="icon" alt="Facebook">
                 <img src="images/outlook-logo.svg" class="icon" alt="Outlook">
             </div>
+            <p class="register-redirect"> Don't have an account? Sign up <a href="signup_renew.php">here.</a></p>
         </div>
-
+        
         </div>
 
         
