@@ -10,7 +10,7 @@
             <img src="images/Logo with Background.png" alt="Logo">
         </div>
         <div class="nav-container">
-            <a href="register_renew.php">Register</a>
+            <a href="signup_renew.php">Register</a>
             <a href="login_renew.php">Login</a>
             <a href="About Us.php">About Us</a>
             <a href="Contact Us.php">Contact Us</a>
