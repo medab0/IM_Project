@@ -1,19 +1,17 @@
-<link rel="stylesheet" href="css/style_index_renew.css">
-	
-<!-- 
-<div class="rounded-box">
-    <h1>Welcome to Coffee Connoisseur's Club</h1>
-    <p>Here you can find the best coffee in town!</p>
-</div> -->
+<?php
+    include 'connect.php';
+?>
 
+<link rel="stylesheet" href="css/style_index_renew.css">
+<title>C.C.C</title>
 <div class="rounded-box">
     <div class="upper-content">
         <div class="image-container">
             <img src="images/Logo with Background.png" alt="Logo">
         </div>
         <div class="nav-container">
-            <a href="register.php">Register</a>
-            <a href="login.php">Login</a>
+            <a href="signup_renew.php">Register</a>
+            <a href="login_renew.php">Login</a>
             <a href="About Us.php">About Us</a>
             <a href="Contact Us.php">Contact Us</a>
         </div>
