@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2024 at 08:43 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Generation Time: Apr 13, 2024 at 10:03 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -62,6 +62,19 @@ CREATE TABLE `tblsubscriptionplan` (
   `Description` varchar(50) NOT NULL,
   `Price_Per_Month` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tblsubscriptionplan`
+--
+
+INSERT INTO `tblsubscriptionplan` (`Plan_ID`, `Plan_Name`, `Coffee_ID`, `Description`, `Price_Per_Month`) VALUES
+(1, 'Light Roast Club', 0, 'Monthly delivery of light roast coffee beans.', 25.16),
+(2, 'Medium Roast Club', 0, 'Monthly delivery of medium roast coffee beans', 16),
+(3, 'Medium Roast Club', 0, 'Monthly delivery of medium roast coffee beans', 16),
+(4, 'Dark Roast Club', 0, 'Monthly delivery of dark roast coffee beans', 20),
+(5, 'Light Roast Club', 0, 'Monthly delivery of light roast coffee beans.', 25.16),
+(6, 'Medium Roast Club', 0, 'Monthly delivery of medium roast coffee beans', 16),
+(7, 'Dark Roast Club', 0, 'Monthly delivery of dark roast coffee beans', 20);
 
 -- --------------------------------------------------------
 
@@ -167,7 +180,7 @@ ALTER TABLE `tblorder`
 -- AUTO_INCREMENT for table `tblsubscriptionplan`
 --
 ALTER TABLE `tblsubscriptionplan`
-  MODIFY `Plan_ID` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `Plan_ID` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbluseraccount`
