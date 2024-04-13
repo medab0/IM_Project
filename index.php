@@ -32,7 +32,7 @@
                             <a href="product.php">Product Page</a>
                             <a href="logout.php">Logout</a>';
                         }
-            	?>
+            ?>
 		</nav>
 		
 		<footer>

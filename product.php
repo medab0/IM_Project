@@ -1,6 +1,24 @@
 <?php
-    include 'connect.php';
+include 'connect.php'; // Make sure to include your database connection file
+
+// Check if product, description, and price parameters are set in the URL
+if(isset($_GET["product"]) && isset($_GET["description"]) && isset($_GET["price"])) {
+    // Retrieve product, description, and price from the URL parameters
+    $product = $_GET["product"];
+    $description = $_GET["description"];
+    $price = $_GET["price"];
+
+    // Insert the product information into the database
+    $sql = "INSERT INTO tblsubscriptionplan (Plan_Name, Description, Price_Per_Month) VALUES ('$product', '$description', '$price')";
+    if ($connection->query($sql) === TRUE) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $connection->error;
+    }
+}
 ?>
+
+
 <head>
 
 	<meta charset="utf-8">
@@ -75,7 +93,7 @@
 	<header class="page-section masthead2">
 		<div class="container h-50">
 			<h1 class="section-header text-white font-weight-bold">Subscription Plans</h1>
-			<p class="main-menu text-white-75 font-weight-light mb-5"><a class="link-menu" href="home.html">Coffee Conoisseur's Club > <span style="color:white;">Subscription Plans</span></a></p>
+			<p class="main-menu text-white-75 font-weight-light mb-5"><a class="link-menu" href="product.php">Coffee Conoisseur's Club > <span style="color:white;">Subscription Plans</span></a></p>
 			
 		</div>
 		
@@ -116,8 +134,8 @@
 									<h5 class="card-title"><b>Light Roast Club</b></h5>
 									<p class="card-text small">With supporting text below as a natural lead-in to additional content.</p>
 									<p class="tags">Price $25.16</p>
-									<a href="index.php" target="_blank" class="btn btn-success button-text"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Subscribe</a>
-								</div>
+									<a href="order.php?product=Light%20Roast%20Club&description=Monthly%20delivery%20of%20light%20roast%20coffee%20beans.&price=25.16" class="btn btn-success button-text"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Subscribe</a>
+
 							</div>
 						</div>
 
@@ -128,7 +146,7 @@
 									<h5 class="card-title"><b>Medium Roast Club</b></h5>
 									<p class="card-text small">With supporting text below as a natural lead-in to additional content.</p>
 									<p class="tags">Price $16</p>
-									<a href="index.php" class="btn btn-success button-text"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Subscribe</a>
+									<a href="order.php?product=Medium%20Roast%20Club&description=Monthly%20delivery%20of%20medium%20roast%20coffee%20beans&price=16.00" class="btn btn-success button-text"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Subscribe</a>
 								</div>
 							</div>
 						</div>
@@ -140,7 +158,7 @@
 									<h5 class="card-title"><b>Dark Roast Club</b></h5>
 									<p class="card-text small">With supporting text below as a natural lead-in to additional content.</p>
 									<p class="tags">Price $20</p>
-									<a href="index.php" class="btn btn-success button-text"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Subscribe</a>
+									<a href="order.php?product=Dark%20Roast%20Club&description=Monthly%20delivery%20of%20dark%20roast%20coffee%20beans&price=20.00" class="btn btn-success button-text"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Subscribe</a>
 								</div>
 							</div>
 						</div>

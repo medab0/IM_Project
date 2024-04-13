@@ -14,6 +14,7 @@
     <nav>
         <a href="register.php">Register</a>
         <a href="login.php">Login</a>
+        <a href="product.php">Products</a>
         <a href="About Us.php">About Us</a>
         <a href="Contact Us.php">Contact Us</a>
     </nav>
