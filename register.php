@@ -6,9 +6,6 @@
     <title>Registration</title>
         <link rel="stylesheet" href="css/style2.css">
 
-
-    
-    
   <div class="container">
     <div class="title">Registration</div>
     <div class="content">
