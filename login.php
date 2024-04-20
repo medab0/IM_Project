@@ -51,7 +51,7 @@ if(isset($_POST["submit"])) {
                 $_SESSION['login'] = true;
                 $_SESSION['id'] = $row["acctID"];
                 //$_SESSION['userID'] = $row['acctID'];
-                header("Location: user.php");
+                header("Location: index.php");
             } else {
                 // Invalid password
                 echo '<script>
