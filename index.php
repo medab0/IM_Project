@@ -30,6 +30,7 @@
                             echo ' Welcome ' . $row['username'] . '
 							<br><br>
                             <a href="product.php">Product Page</a>
+                            <a href="user.php">User Profile</a>
                             <a href="logout.php">Logout</a>';
                         }
             ?>

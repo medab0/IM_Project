@@ -1,7 +1,5 @@
 <?php
     include 'connect.php';
-    
-    //session_start(); // Start the session to access session variables
 ?>
 
     <meta charset="UTF-8">
