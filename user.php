@@ -1,6 +1,5 @@
 <?php
     include 'connect.php'; // Include the database connection code
-    session_start(); // Start the session to access session variables
 ?>
 
 <!DOCTYPE html>
