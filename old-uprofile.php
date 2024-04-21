@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
     <link rel="stylesheet" href="css/style2.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   
 </head>
 <body>
     <nav>
@@ -52,11 +52,12 @@
                     echo "<div class='update-form'>";
                     echo "<h2>Update Information</h2>";
                     echo "<form method='POST'>";
-                    echo "<input type='text' name='firstName' placeholder='First Name' value='" . $row["firstName"] . "' required>";
+                    echo "<label for='firstName'>First Name: </label>";
+                    echo "<input type='text' id='firstName' name='firstName' placeholder='First Name' value='" . $row["firstName"] . "' required>";
                     echo "<input type='text' name='lastName' placeholder='Last Name' value='" . $row["lastName"] . "' required>";
                     echo "<input type='email' name='email' placeholder='Email Address' value='" . $row["emailAdd"] . "' required>";
                     echo "<input type='date' name='birthDate' value='" . $row["birthDate"] . "' required>";
-                    echo "<input type='text' name='plan' placeholder='Subscription Plan' value='" . $row["plan_ID"] . "' required>";
+                    echo "<input type='text' name='plan' placeholder='Subscription Plan' value='' readonly" . $row["plan_ID"] . "' required>";
                     echo "<button type='submit' name='update'>Update</button>";
                     echo "</form>";
                     echo "</div>";
