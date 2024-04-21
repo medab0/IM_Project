@@ -26,8 +26,11 @@
             if(isset($_SESSION['id'])) {
                 $userID = $_SESSION['id']; // Get the user ID from the session
                 // Query to fetch user details for the logged-in user
-                $sql = "SELECT u.userID, u.firstName, u.lastName, p.emailAdd, u.birthDate FROM tbluserprofile u 
-                        INNER JOIN tbluseraccount p ON u.userID = p.acctID 
+                $sql = "SELECT u.userID, u.firstName, u.lastName, p.emailAdd, u.birthDate, s.subscription_ID, s.plan_ID, r.Plan_Name
+                        FROM tbluserprofile u 
+                        INNER JOIN tbluseraccount p ON u.userID = p.acctID
+                        INNER JOIN tblsubscription s ON u.userID = s.account_ID
+                        INNER JOIN tblsubscriptionplan r ON s.plan_ID = r.Plan_ID
                         WHERE u.userID = $userID";
                 $result = mysqli_query($connection, $sql);
                 
@@ -39,6 +42,9 @@
                     echo "<h2>" . $row["firstName"] . " " . $row["lastName"] . "</h2>";
                     echo "<p>Email: " . $row["emailAdd"] . "</p>";
                     echo "<p>Birth Date: " . $row["birthDate"] . "</p>";
+                    echo "<p> Subscription Plan: " . $row["plan_ID"] . "</p>"; 
+                    echo "<p> Plan Type: " . $row["Plan_Name"] . "</p>";
+                    
                     // Output more details as needed
                     echo "</div>";
 
@@ -50,6 +56,7 @@
                     echo "<input type='text' name='lastName' placeholder='Last Name' value='" . $row["lastName"] . "' required>";
                     echo "<input type='email' name='email' placeholder='Email Address' value='" . $row["emailAdd"] . "' required>";
                     echo "<input type='date' name='birthDate' value='" . $row["birthDate"] . "' required>";
+                    echo "<input type='text' name='plan' placeholder='Subscription Plan' value='" . $row["plan_ID"] . "' required>";
                     echo "<button type='submit' name='update'>Update</button>";
                     echo "</form>";
                     echo "</div>";
@@ -71,13 +78,21 @@
                     $lastName = $_POST['lastName'];
                     $email = $_POST['email'];
                     $birthDate = $_POST['birthDate'];
+                    $plan = $_POST['plan'];
                     // Update user information in the database
                     $updateSql = "UPDATE tbluserprofile SET firstName='$firstName', lastName='$lastName', birthDate='$birthDate' WHERE userID='$userID'";
                     $updateResult = mysqli_query($connection, $updateSql);
                     if($updateResult) {
-                        echo "<script>alert('Information updated successfully');</script>";
-                        // Refresh the page to reflect the updated information
-                        echo "<meta http-equiv='refresh' content='0'>";
+                        // Update subscription plan in the database
+                        $updatePlanSql = "UPDATE tblsubscription SET plan_ID='$plan' WHERE account_ID='$userID'";
+                        $updatePlanResult = mysqli_query($connection, $updatePlanSql);
+                        if($updatePlanResult) {
+                            echo "<script>alert('Information updated successfully');</script>";
+                            // Refresh the page to reflect the updated information
+                            echo "<meta http-equiv='refresh' content='0'>";
+                        } else {
+                            echo "<script>alert('Failed to update subscription plan');</script>";
+                        }
                     } else {
                         echo "<script>alert('Failed to update information');</script>";
                     }

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2024 at 08:43 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Generation Time: Apr 20, 2024 at 09:03 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -52,6 +52,25 @@ CREATE TABLE `tblorder` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tblsubscription`
+--
+
+CREATE TABLE `tblsubscription` (
+  `subscription_ID` int(11) NOT NULL,
+  `account_ID` int(11) NOT NULL,
+  `plan_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tblsubscription`
+--
+
+INSERT INTO `tblsubscription` (`subscription_ID`, `account_ID`, `plan_ID`) VALUES
+(4, 5, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tblsubscriptionplan`
 --
 
@@ -62,6 +81,15 @@ CREATE TABLE `tblsubscriptionplan` (
   `Description` varchar(50) NOT NULL,
   `Price_Per_Month` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tblsubscriptionplan`
+--
+
+INSERT INTO `tblsubscriptionplan` (`Plan_ID`, `Plan_Name`, `Coffee_ID`, `Description`, `Price_Per_Month`) VALUES
+(1, 'Light Roast Club', 0, 'Monthly delivery of light roast coffee beans.', 25.16),
+(2, 'Medium Roast Club', 0, 'Monthly delivery of medium roast coffee beans', 16),
+(3, 'Dark Roast Club', 0, 'Monthly delivery of dark roast coffee beans', 20);
 
 -- --------------------------------------------------------
 
@@ -111,7 +139,7 @@ INSERT INTO `tbluserprofile` (`userID`, `firstName`, `lastName`, `gender`, `birt
 (2, 'John', 'Doe', 'on', '0000-00-00'),
 (3, 'arci', 'dael', 'male', '0000-00-00'),
 (4, 'hehe', 'xd', 'Others', '0000-00-00'),
-(5, 'el', 'belleza', 'Others', '0000-00-00');
+(5, 'el', 'belleza', 'Others', '1111-01-01');
 
 --
 -- Indexes for dumped tables
@@ -128,6 +156,14 @@ ALTER TABLE `tblcoffee`
 --
 ALTER TABLE `tblorder`
   ADD PRIMARY KEY (`Order_ID`);
+
+--
+-- Indexes for table `tblsubscription`
+--
+ALTER TABLE `tblsubscription`
+  ADD PRIMARY KEY (`subscription_ID`),
+  ADD KEY `account` (`account_ID`),
+  ADD KEY `subscription` (`plan_ID`);
 
 --
 -- Indexes for table `tblsubscriptionplan`
@@ -164,10 +200,16 @@ ALTER TABLE `tblorder`
   MODIFY `Order_ID` int(6) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `tblsubscription`
+--
+ALTER TABLE `tblsubscription`
+  MODIFY `subscription_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `tblsubscriptionplan`
 --
 ALTER TABLE `tblsubscriptionplan`
-  MODIFY `Plan_ID` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `Plan_ID` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbluseraccount`
@@ -180,6 +222,17 @@ ALTER TABLE `tbluseraccount`
 --
 ALTER TABLE `tbluserprofile`
   MODIFY `userID` int(6) NOT NULL AUTO_INCREMENT COMMENT 'User''s ID', AUTO_INCREMENT=24;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tblsubscription`
+--
+ALTER TABLE `tblsubscription`
+  ADD CONSTRAINT `account` FOREIGN KEY (`account_ID`) REFERENCES `tbluseraccount` (`acctID`),
+  ADD CONSTRAINT `subscription` FOREIGN KEY (`plan_ID`) REFERENCES `tblsubscriptionplan` (`Plan_ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
