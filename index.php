@@ -9,7 +9,7 @@
         <div class="nav-container">
             <a href="signup.php">Register</a>
             <a href="login.php">Login</a>
-            <a href="About Us.php">About Us</a>
+            <a href="user-profile.php">User Profile</a>
             <a href="Contact Us.php">Contact Us</a>
         </div>
     </div>

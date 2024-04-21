@@ -59,7 +59,7 @@
             <img src="images/fb-logo.svg" class="icon" alt="Facebook">
             <img src="images/outlook-logo.svg" class="icon" alt="Outlook">
         </div>
-        <p class="login-redirect">Already have an account? Login <a href="login_renew.php">here. </a></p>
+        <p class="login-redirect">Already have an account? Login <a href="login.php">here. </a></p>
     </div>
 
 

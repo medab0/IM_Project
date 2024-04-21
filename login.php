@@ -28,7 +28,7 @@
                 <img src="images/fb-logo.svg" class="icon" alt="Facebook">
                 <img src="images/outlook-logo.svg" class="icon" alt="Outlook">
             </div>
-            <p class="register-redirect"> Don't have an account? Sign up <a href="signup_renew.php">here.</a></p>
+            <p class="register-redirect"> Don't have an account? Sign up <a href="signup.php">here.</a></p>
         </div>
         
         </div>
@@ -59,7 +59,7 @@
                     $_SESSION['login'] = true;
                     $_SESSION['id'] = $row["acctID"];
                     //$_SESSION['userID'] = $row['acctID'];
-                    header("Location: user.php");
+                    header("Location: user-profile.php");
                 } else {
                     // Invalid password
                     echo '<script>
