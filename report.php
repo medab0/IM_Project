@@ -11,7 +11,7 @@ if ($connection->connect_errno) {
 $query = "SELECT * FROM tbluserprofile";
 
 // Execute the query
-$result = $mysqli->query($query);
+$result = $connection->query($query);
 
 // Check if the query was successful
 if (!$result) {
@@ -21,22 +21,85 @@ if (!$result) {
 
 // Create a table to display the user details
 echo "<html><head><title>User Details Report</title></head><body>";
+echo "<h1> User Details </h1>";
 echo "<table border='1' cellpadding='5' cellspacing='0'>";
-echo "<tr><th>User ID</th><th>Name</th><th>Email</th><th>Address</th></tr>";
+echo "<tr><th>User ID</th><th>First Name</th><th>Last Name</th><th>Gender</th></tr>";
 
 // Loop through the result set and display each user's details
 while ($row = $result->fetch_assoc()) {
     echo "<tr>";
-    echo "<td>" . $row['user_id'] . "</td>";
-    echo "<td>" . $row['name'] . "</td>";
-    echo "<td>" . $row['email'] . "</td>";
-    echo "<td>" . $row['address'] . "</td>";
+    echo "<td>" . $row['userID'] . "</td>";
+    echo "<td>" . $row['firstName'] . "</td>";
+    echo "<td>" . $row['lastName'] . "</td>";
+    echo "<td>" . $row['gender'] . "</td>";
     echo "</tr>";
 }
 
 echo "</table>";
+
+//NEW TABLE on User Profile
+
+// Query to retrieve all user details
+$query1 = "SELECT * FROM tbluseraccount";
+
+// Execute the query
+$result1 = $connection->query($query1);
+
+// Check if the query was successful
+if (!$result1) {
+    echo "Query failed: (" . $mysqli->errno . ") " . $mysqli->error;
+    exit();
+}
+
+// Create a table to display the user details
+echo "<h1> Account Details </h1>";
+echo "<table border='1' cellpadding='5' cellspacing='0'>";
+echo "<tr><th>Account ID</th><th>Email Address</th><th>Username</th></tr>";
+
+// Loop through the result set and display each user's details
+while ($row = $result1->fetch_assoc()) {
+    echo "<tr>";
+    echo "<td>" . $row['acctID'] . "</td>";
+    echo "<td>" . $row['emailAdd'] . "</td>";
+    echo "<td>" . $row['username'] . "</td>";
+    echo "</tr>";
+}
+
+echo "</table>";
+
+//NEW TABLE on Subscription Plans
+
+// Query to retrieve all user details
+$query1 = "SELECT * FROM tblsubscriptionplan";
+
+// Execute the query
+$result1 = $connection->query($query1);
+
+// Check if the query was successful
+if (!$result1) {
+    echo "Query failed: (" . $mysqli->errno . ") " . $mysqli->error;
+    exit();
+}
+
+// Create a table to display the user details
+echo "<h1> Subscription Plans </h1>";
+echo "<table border='1' cellpadding='5' cellspacing='0'>";
+echo "<tr><th>Subscription ID</th><th>Plan Name</th><th>Description</th></tr>";
+
+// Loop through the result set and display each user's details
+while ($row = $result1->fetch_assoc()) {
+    echo "<tr>";
+    echo "<td>" . $row['Plan_ID'] . "</td>";
+    echo "<td>" . $row['Plan_Name'] . "</td>";
+    echo "<td>" . $row['Description'] . "</td>";
+    echo "</tr>";
+}
+
+echo "</table>";
+
+
 echo "</body></html>";
 
 // Close the database connection
-$mysqli->close();
+$connection->close();
 ?>
