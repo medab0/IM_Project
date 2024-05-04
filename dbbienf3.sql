@@ -31,6 +31,7 @@ CREATE TABLE `tblcoffee` (
   `Coffee_ID` int(6) NOT NULL,
   `Coffee_Name` varchar(50) NOT NULL,
   `Description` varchar(50) NOT NULL,
+  `Best_Use` varchar(50) NOT NULL,
   `Roast_Level` varchar(50) NOT NULL,
   `Price_Per_Bag` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -39,10 +40,19 @@ CREATE TABLE `tblcoffee` (
 -- Dumping data for table `tblcoffee`
 --
 
-INSERT INTO `tblcoffee` (`Coffee_ID`, `Coffee_Name`, `Description`, `Roast_Level`, `Price_Per_Bag`) VALUES
-(1, 'Light Roast Coffee', 'Monthly delivery of light roast coffee beans.', 1, 25.16),
-(2, 'Medium Roast Coffee', 'Monthly delivery of medium roast coffee beans', 2, 16),
-(3, 'Dark Roast Coffee', 'Monthly delivery of dark roast coffee beans', 3, 20);
+INSERT INTO `tblcoffee` (`Coffee_ID`, `Coffee_Name`, `Description`, `Best_Use`, `Roast_Level`, `Price_Per_Bag`) VALUES
+(1, 'ARABICA - Light', 'Variable – distinctly not bitter', 'Brewed coffee', 'Light Roast', 25.16),
+(2, 'ARABICA - Medium', 'Variable – distinctly not bitter', 'Brewed coffee', 'Medium Roast', 25.16),
+(3, 'ARABICA - Dark', 'Variable – distinctly not bitter', 'Brewed coffee', 'Dark Roast', 25.16),
+(4, 'ROBUSTA - Light', 'Bitter – woody or nutty', 'Coffee blends and espresso', 'Light Roast', 16),
+(5, 'ROBUSTA - Medium', 'Bitter – woody or nutty', 'Coffee blends and espresso', 'Medium Roast', 16),
+(6, 'ROBUSTA - Dark', 'Bitter – woody or nutty', 'Coffee blends and espresso', 'Dark Roast', 16),
+(7, 'EXCELSA - Light', 'Complex – tart, fruity and dark', 'Brewed coffee and blends', 'Light Roast', 20);
+(8, 'EXCELSA - Medium', 'Complex – tart, fruity and dark', 'Brewed coffee and blends', 'Medium Roast', 20);
+(9, 'EXCELSA - Dark', 'Complex – tart, fruity and dark', 'Brewed coffee and blends', 'Dark Roast', 20);
+(10, 'LIBERICA - Light', 'Unusual – nutty and woody', 'Brewed coffee and desserts', 'Light Roast', 20);
+(11, 'LIBERICA - Medium', 'Unusual – nutty and woody', 'Brewed coffee and desserts', 'Medium Roast', 20);
+(12, 'LIBERICA - Dark', 'Unusual – nutty and woody', 'Brewed coffee and desserts', 'Dark Roast', 20);
 
 -- --------------------------------------------------------
 
