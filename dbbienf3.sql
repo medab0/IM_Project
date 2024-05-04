@@ -54,7 +54,7 @@ INSERT INTO `tblcoffee` (`Coffee_ID`, `Coffee_Name`, `Description`, `Best_Use`, 
 (11, 'LIBERICA - Medium', 'Unusual – nutty and woody', 'Brewed coffee and desserts', 'Medium Roast', 20),
 (12, 'LIBERICA - Dark', 'Unusual – nutty and woody', 'Brewed coffee and desserts', 'Dark Roast', 20);
 
--- --------------------------------------------------------
+-- -------------------------------------------------------- 
 
 --
 -- Table structure for table `tblorder`
