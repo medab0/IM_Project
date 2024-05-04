@@ -35,6 +35,15 @@ CREATE TABLE `tblcoffee` (
   `Price_Per_Bag` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `tblcoffee`
+--
+
+INSERT INTO `tblcoffee` (`Coffee_ID`, `Coffee_Name`, `Description`, `Roast_Level`, `Price_Per_Bag`) VALUES
+(1, 'Light Roast Coffee', 'Monthly delivery of light roast coffee beans.', 1, 25.16),
+(2, 'Medium Roast Coffee', 'Monthly delivery of medium roast coffee beans', 2, 16),
+(3, 'Dark Roast Coffee', 'Monthly delivery of dark roast coffee beans', 3, 20);
+
 -- --------------------------------------------------------
 
 --
