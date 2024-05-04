@@ -11,6 +11,7 @@
             <a href="login.php">Login</a>
             <a href="user-profile.php">User Profile</a>
             <a href="Contact Us.php">Contact Us</a>
+            <a href="_blank">Report</a>
         </div>
     </div>
 
