@@ -47,11 +47,11 @@ INSERT INTO `tblcoffee` (`Coffee_ID`, `Coffee_Name`, `Description`, `Best_Use`, 
 (4, 'ROBUSTA - Light', 'Bitter – woody or nutty', 'Coffee blends and espresso', 'Light Roast', 16),
 (5, 'ROBUSTA - Medium', 'Bitter – woody or nutty', 'Coffee blends and espresso', 'Medium Roast', 16),
 (6, 'ROBUSTA - Dark', 'Bitter – woody or nutty', 'Coffee blends and espresso', 'Dark Roast', 16),
-(7, 'EXCELSA - Light', 'Complex – tart, fruity and dark', 'Brewed coffee and blends', 'Light Roast', 20);
-(8, 'EXCELSA - Medium', 'Complex – tart, fruity and dark', 'Brewed coffee and blends', 'Medium Roast', 20);
-(9, 'EXCELSA - Dark', 'Complex – tart, fruity and dark', 'Brewed coffee and blends', 'Dark Roast', 20);
-(10, 'LIBERICA - Light', 'Unusual – nutty and woody', 'Brewed coffee and desserts', 'Light Roast', 20);
-(11, 'LIBERICA - Medium', 'Unusual – nutty and woody', 'Brewed coffee and desserts', 'Medium Roast', 20);
+(7, 'EXCELSA - Light', 'Complex – tart, fruity and dark', 'Brewed coffee and blends', 'Light Roast', 20),
+(8, 'EXCELSA - Medium', 'Complex – tart, fruity and dark', 'Brewed coffee and blends', 'Medium Roast', 20),
+(9, 'EXCELSA - Dark', 'Complex – tart, fruity and dark', 'Brewed coffee and blends', 'Dark Roast', 20),
+(10, 'LIBERICA - Light', 'Unusual – nutty and woody', 'Brewed coffee and desserts', 'Light Roast', 20),
+(11, 'LIBERICA - Medium', 'Unusual – nutty and woody', 'Brewed coffee and desserts', 'Medium Roast', 20),
 (12, 'LIBERICA - Dark', 'Unusual – nutty and woody', 'Brewed coffee and desserts', 'Dark Roast', 20);
 
 -- --------------------------------------------------------
