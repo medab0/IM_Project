@@ -2,6 +2,15 @@
 <link rel="stylesheet" href="css/style_userprofile.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <title>User Profile</title>
+
+<nav>
+    <ul>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="user-profile.php">Profile</a></li>
+        <!-- Add more links here as needed -->
+    </ul>
+</nav>
+
 <div class="rounded-box">
     <div class="upper-content">
         <div class="image-container">
@@ -18,20 +27,18 @@ if(isset($_SESSION['id'])) {
     $userID = $_SESSION['id']; // Get the user ID from the session
 
     // Query to fetch user details for the logged-in user
-    $sql = "SELECT u.userID, u.firstName, u.lastName, p.emailAdd, u.birthDate, s.subscription_ID, s.Plan_ID, r.Plan_Name
-    FROM tbluserprofile u 
-    INNER JOIN tbluseraccount p ON u.userID = p.acctID
-    INNER JOIN tblsubscription s ON u.userID = s.account_ID
-    INNER JOIN tblsubscriptionplan r ON s.plan_ID = r.Plan_ID
+    $sql = "SELECT u.userID, u.firstName, u.lastName, p.emailAdd, u.birthDate
+    FROM tbluserprofile u
+    INNER JOIN tbluseraccount p ON u.acctID = p.acctID
     WHERE u.userID = $userID";
-    $result = mysqli_query($connection, $sql);
+    $result = mysqli_query($connection, $sql);  
 
     if ($result->num_rows > 0) {
         // Fetch the user's first name
         $row = $result->fetch_assoc();
 
         echo "<div class='form-container'>";
-                    echo "<h2 class='form-title'>Update Information</h2>";
+                    echo "<h2 class='form-title'>User Information</h2>";
                     echo "<form method='POST'>";
 
                     echo "<div class='content'>";
@@ -54,22 +61,12 @@ if(isset($_SESSION['id'])) {
                     echo "<input type='date' name='birthDate' value='" . $row["birthDate"] . "' required>";
                     echo "</div>";
                     
-                    echo "<div class='content'>";
-                    echo "<label for='plan'>Subscription Plan: </label>";
-                    echo "<select name='plan'>";
-        
-                            $selectedPlan = $row['Plan_ID'];
-                            echo '<option value="0" '. ($selectedPlan == 1? 'selected' : ''). '>No Plan  </option>';
-                            echo '<option value="1" '. ($selectedPlan == 1? 'selected' : ''). '>1: Light  </option>';
-                            echo '<option value="2" '. ($selectedPlan == 2? 'selected' : ''). '>2: Medium</option>';
-                            echo '<option value="3" '. ($selectedPlan == 3? 'selected' : ''). '>3: Dark</option>';
-                            echo "</select>";
-
-                    echo "<input type='text' name='planName' placeholder='Plan Name' value='" . $row["Plan_Name"] . "' readonly>";
-                    echo "</div>";
+                     
                     echo "<div class='content'>";
                     echo "<button type='submit' class='btnSubmit' name='update'>Update</button>";
+                    echo "<button type='submit' class='btnSignout' name='signout'>Sign Out</button>";
                     echo "<button type='submit' class='btnDelete' name='delete'>Delete Account</button>";
+                    
                     echo "</div>";
                     
                     echo "</form>";
@@ -85,24 +82,18 @@ if(isset($_SESSION['id'])) {
         $lastName = $_POST['lastName'];
         $email = $_POST['email'];
         $birthDate = $_POST['birthDate'];
-        $plan = $_POST['plan'];
+
         // Update user information in the database
-        $updateSql = "UPDATE tbluserprofile SET firstName='$firstName', lastName='$lastName', birthDate='$birthDate' WHERE userID='$userID'";
-        $updateResult = mysqli_query($connection, $updateSql);
-        if($updateResult) {
-            // Update subscription plan in the database
-            $updatePlanSql = "UPDATE tblsubscription SET plan_ID='$plan' WHERE account_ID='$userID'";
-            $updatePlanResult = mysqli_query($connection, $updatePlanSql);
-            if($updatePlanResult) {
-                echo "<script>alert('Information updated successfully');</script>";
+        $sqlUpdateUser = "UPDATE tbluseraccount SET emailAdd='$email' WHERE acctID=$userID";
+        mysqli_query($connection, $sqlUpdateUser);
+
+        // Update user profile information in the database
+        $sqlUpdateProfile = "UPDATE tbluserprofile SET firstName='$firstName', lastName='$lastName', birthDate='$birthDate' WHERE userID=$userID";
+        mysqli_query($connection, $sqlUpdateProfile);
+
+        echo "<script>alert('Information updated successfully');</script>";
                 // Refresh the page to reflect the updated information
-                echo "<meta http-equiv='refresh' content='0'>";
-            } else {
-                echo "<script>alert('Failed to update subscription plan');</script>";
-            }
-        } else {
-            echo "<script>alert('Failed to update information');</script>";
-        }
+        echo "<meta http-equiv='refresh' content='0'>";
     }
 
     if(isset($_POST['delete'])) {
@@ -118,6 +109,12 @@ if(isset($_SESSION['id'])) {
         } else {
             echo "<script>alert('Failed to delete account');</script>";
         }
+    }
+
+    if(isset($_POST['signout'])) {
+        session_destroy();
+        header("Location: index.php");
+        exit;
     }
 
 } else {

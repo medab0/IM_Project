@@ -7,9 +7,22 @@
             <img src="images/Logo with Background.png" alt="Logo">
         </div>
         <div class="nav-container">
-            <a href="signup.php">Register</a>
-            <a href="login.php">Login</a>
-            <a href="user-profile.php">User Profile</a>
+            
+            <?php
+            include 'connect.php';
+            // if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true)
+            // if(isset($_SESSION['id']))
+            if(isset($_SESSION['id'])){
+            echo "<a href='user-profile.php'>User Profile</a>";
+            echo "<a href='subscription.php'>Subscriptions</a>";
+            echo "<a href='product_renew.php'>Coffee</a>";
+            echo "<a href='order.php'>Cart</a>";
+            }else{
+                
+                echo "<a href='signup.php'>Register</a>";
+                echo "<a href='login.php'>Login</a>";
+            }
+            ?>
             <a href="Contact Us.php">Contact Us</a>
             <a href="report.php">Report</a>
         </div>

@@ -38,20 +38,20 @@
 
 include 'connect.php';
 // Query to fetch all coffee products
-$sql = "SELECT * FROM tblcoffee";
+$sql = "SELECT * FROM tblsubscriptionplan";
 $result = mysqli_query($connection, $sql);
 
 // Loop through each coffee product and display it in a div
 
 while($row = mysqli_fetch_assoc($result)) {
-    $coffee_id = $row['Coffee_ID'];
-    $coffee_name = $row['Coffee_Name'];
-    $price_per_bag = $row['Price_Per_Bag'];
+    $plan_id = $row['Plan_ID'];
+    $plan_name = $row['Plan_Name'];
+    $plan_price = $row['Price_Per_Month'];
 
     echo "<div class='coffee-product'>";
-    echo "<h2>$coffee_name</h2>";
-    echo "<p>Price: $$price_per_bag per bag</p>";
-    echo "<button type='submit' name='add_to_cart' value='$coffee_id'>Add to Cart</button>";
+    echo "<h2>$plan_name</h2>";
+    echo "<p>Price: $$plan_price per bag</p>";
+    echo "<button type='submit' name='add_to_cart' value='$plan_id'>Add to Cart</button>";
     echo "</div>";
 }
 ?>
