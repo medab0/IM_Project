@@ -1,6 +1,3 @@
-<?php
-    include 'connect.php';
-?>
 
 <link rel="stylesheet" href="css/style_index_renew.css">
 <title>C.C.C</title>
