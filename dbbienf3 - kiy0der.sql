@@ -56,9 +56,8 @@ CREATE TABLE `tblsubscription` (
 
 -- Table structure for table `tblorder`
 CREATE TABLE `tblorder` (
-  `Order_ID` int(6) NOT NULL PRIMARY KEY,
+  `Order_ID` int(6) NOT NULL  AUTO_INCREMENT PRIMARY KEY,
   `Customer_ID` int(6) NOT NULL,
-  `Plan_ID` int(6) NOT NULL,
   `Coffee_ID` int(6) NOT NULL,
   `Quantity` int(6) NOT NULL,
   `Total_Price` float NOT NULL,
