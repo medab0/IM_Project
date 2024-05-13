@@ -29,7 +29,8 @@ CREATE TABLE `tbluseraccount` (
   `acctID` int(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `emailAdd` varchar(50) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL  
+  `password` varchar(20) NOT NULL,
+  `is_deleted` TINYINT(1) DEFAULT 0
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 

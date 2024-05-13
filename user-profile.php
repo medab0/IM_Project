@@ -27,7 +27,7 @@ if(isset($_SESSION['id'])) {
     $userID = $_SESSION['id']; // Get the user ID from the session
 
     // Query to fetch user details for the logged-in user
-    $sql = "SELECT u.userID, u.firstName, u.lastName, p.emailAdd, u.birthDate
+    $sql = "SELECT u.userID, u.firstName, u.lastName, p.emailAdd, u.birthDate, p.is_deleted
     FROM tbluserprofile u
     INNER JOIN tbluseraccount p ON u.acctID = p.acctID
     WHERE u.userID = $userID";
@@ -60,6 +60,12 @@ if(isset($_SESSION['id'])) {
                     echo "<label for='birthDate'>Birth Date: </label>";
                     echo "<input type='date' name='birthDate' value='" . $row["birthDate"] . "' required>";
                     echo "</div>";
+
+                    echo "<div class='content'>";
+                    echo "<label for='isDeleted'>Status: </label>";
+                    $status = $row["is_deleted"] == 0 ? "Active" : "Deactivated";
+                    echo "<input type='text' name='isDeleted' value='" . $status . "' required readonly>";
+                    echo "</div>";
                     
                      
                     echo "<div class='content'>";
@@ -82,6 +88,7 @@ if(isset($_SESSION['id'])) {
         $lastName = $_POST['lastName'];
         $email = $_POST['email'];
         $birthDate = $_POST['birthDate'];
+        // $status = $_POST['is_deleted'];
 
         // Update user information in the database
         $sqlUpdateUser = "UPDATE tbluseraccount SET emailAdd='$email' WHERE acctID=$userID";
@@ -97,19 +104,34 @@ if(isset($_SESSION['id'])) {
     }
 
     if(isset($_POST['delete'])) {
-        // Delete user account and related information from the database
-        $deleteSql1 = "DELETE FROM tbluserprofile WHERE userID='$userID'";
-        $deleteSql2 = "DELETE FROM tbluseraccount WHERE acctID='$userID'";
-        $deleteResult1 = mysqli_query($connection, $deleteSql1);
-        $deleteResult2 = mysqli_query($connection, $deleteSql2);
-        if($deleteResult1 && $deleteResult2) {
-            // Log the user out and redirect to the homepage after deleting account
-            session_destroy();
-            header("Location: index.php");
-        } else {
-            echo "<script>alert('Failed to delete account');</script>";
-        }
+        // // Delete user account and related information from the database
+        // $deleteSql1 = "DELETE FROM tbluserprofile WHERE userID='$userID'";
+        // $deleteSql2 = "DELETE FROM tbluseraccount WHERE acctID='$userID'";
+        // $deleteResult1 = mysqli_query($connection, $deleteSql1);
+        // $deleteResult2 = mysqli_query($connection, $deleteSql2);
+        // if($deleteResult1 && $deleteResult2) {
+        //     // Log the user out and redirect to the homepage after deleting account
+        //     session_destroy();
+        //     header("Location: index.php");
+        // } else {
+        //     echo "<script>alert('Failed to delete account');</script>";
+        // }
+
+        // Update user information in the database
+        
+        $sqlUpdateUser = "UPDATE tbluseraccount SET is_deleted = 1 WHERE acctID=$userID";
+        mysqli_query($connection, $sqlUpdateUser);
+        echo "<script>alert('Account deleted successfully');</script>";
+                // Refresh the page to reflect the updated information
+        echo "<meta http-equiv='refresh' content='0'>";
+
+
+
+
+
     }
+
+
 
     if(isset($_POST['signout'])) {
         session_destroy();
