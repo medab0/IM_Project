@@ -39,7 +39,7 @@ if(isset($_SESSION['id'])) {
 
         echo "<div class='form-container'>";
                     echo "<h2 class='form-title'>User Information</h2>";
-                    echo "<form method='POST'>";
+                    echo "<form method='POST' id='updateForm'>";
 
                     echo "<div class='content'>";
                     echo "<label for='firstName'>First Name: </label>";
@@ -69,7 +69,15 @@ if(isset($_SESSION['id'])) {
                     
                      
                     echo "<div class='content'>";
-                    echo "<button type='submit' class='btnSubmit' name='update'>Update</button>";
+                    echo "<button type='submit' class='btnSubmit' name='update' onclick='return confirmUpdate()'>Update</button>";
+
+                    // JavaScript function for confirmation
+                    echo "<script>";
+                    echo "function confirmUpdate() {";
+                    echo "    return confirm('Are you sure you want to update your information?');";
+                    echo "}";
+                    echo "</script>";
+
                     echo "<button type='submit' class='btnSignout' name='signout'>Sign Out</button>";
                     echo "<button type='submit' class='btnDelete' name='delete'>Delete Account</button>";
                     
