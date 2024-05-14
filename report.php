@@ -173,6 +173,58 @@ echo "</table>";
 
 echo "</body></html>";
 
+echo "<html><head><title>Additional Statistics</title></head><body>";
+
+// Total Number of Users
+$query = "SELECT COUNT(*) AS total_users FROM tbluseraccount WHERE is_deleted = 0";
+$result = $connection->query($query);
+$total_users = $result->fetch_assoc()['total_users'];
+
+echo "<h1> Total Users: $total_users </h1>";
+
+// Total Number of Deleted Users
+$query = "SELECT COUNT(*) AS deleted_users FROM tbluseraccount WHERE is_deleted = 1";
+$result = $connection->query($query);
+$deleted_users = $result->fetch_assoc()['deleted_users'];
+
+echo "<h1>Deleted Users: $deleted_users</h1>";
+
+// Number of Users by Gender
+$query = "SELECT gender, COUNT(*) AS count FROM tbluserprofile GROUP BY gender";
+$result = $connection->query($query);
+
+echo "<h1>Users by Gender</h1><table border='1' cellpadding='5' cellspacing='0'>";
+echo "<tr><th>Gender</th><th>Count</th></tr>";
+while ($row = $result->fetch_assoc()) {
+    echo "<tr><td>" . $row['gender'] . "</td><td>" . $row['count'] . "</td></tr>";
+}
+echo "</table>";
+
+// Number of Users by Year of Birth
+
+$query = "SELECT YEAR(birthDate) AS BirthYear, COUNT(*) AS Count FROM tbluserprofile GROUP BY YEAR(birthDate) ORDER BY YEAR(birthDate)";
+$result = $connection->query($query);
+
+echo "<h1>Users by Year of Birth</h1><table border='1' cellpadding='5' cellspacing='0'>";
+echo "<tr><th>Year of Birth</th><th>Count</th></tr>";
+while ($row = $result->fetch_assoc()) {
+    echo "<tr><td>" . $row['BirthYear'] . "</td><td>" . $row['Count'] . "</td></tr>";
+}
+echo "</table>";    
+
+// Number of Users by Monthly Birth
+$query = "SELECT MONTHNAME(birthDate) AS Month, COUNT(*) AS Count FROM tbluserprofile GROUP BY MONTH(birthDate) ORDER BY MONTH(birthDate)";
+$result = $connection->query($query);
+
+echo "<h1>Users Birth by Month</h1><table border='1' cellpadding='5' cellspacing='0'>";
+echo "<tr><th>Month</th><th>Count</th></tr>";
+while ($row = $result->fetch_assoc()) {
+    echo "<tr><td>" . $row['Month'] . "</td><td>" . $row['Count'] . "</td></tr>";
+}
+echo "</table>";
+
+echo "</body></html>";
+
 // Close the database connection
 $connection->close();
 ?>
