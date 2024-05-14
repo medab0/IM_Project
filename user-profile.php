@@ -91,16 +91,20 @@ if(isset($_SESSION['id'])) {
         // $status = $_POST['is_deleted'];
 
         // Update user information in the database
-        $sqlUpdateUser = "UPDATE tbluseraccount SET emailAdd='$email' WHERE acctID=$userID";
-        mysqli_query($connection, $sqlUpdateUser);
-
+        echo $sqlUpdateUser = "UPDATE tbluseraccount SET emailAdd='$email' WHERE acctID=$userID";
+        echo mysqli_query($connection, $sqlUpdateUser);
         // Update user profile information in the database
-        $sqlUpdateProfile = "UPDATE tbluserprofile SET firstName='$firstName', lastName='$lastName', birthDate='$birthDate' WHERE userID=$userID";
-        mysqli_query($connection, $sqlUpdateProfile);
+        echo $sqlUpdateProfile = "UPDATE tbluserprofile SET firstName='$firstName', lastName='$lastName', birthDate='$birthDate' WHERE userID=$userID";
+        echo mysqli_query($connection, $sqlUpdateProfile);
 
         echo "<script>alert('Information updated successfully');</script>";
-                // Refresh the page to reflect the updated information
-        echo "<meta http-equiv='refresh' content='0'>";
+        // Refresh the page to reflect the updated information
+        echo "<meta http-equiv='refresh' content='0'>"; 
+        // Submit the form if confirmed
+
+        
+
+        
     }
 
     if(isset($_POST['delete'])) {
