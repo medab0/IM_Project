@@ -30,8 +30,8 @@ while ($row = $result->fetch_assoc()) {
     echo "<tr>";
     echo "<td>" . $row['userID'] . "</td>";
     // Hashing firstName and lastName before displaying
-    echo "<td>" . hash('sha256', $row['firstName']) . "</td>";
-    echo "<td>" . hash('sha256', $row['lastName']) . "</td>";
+    echo "<td>" . $row['firstName'] . "</td>";
+    echo "<td>" . $row['lastName'] . "</td>";
     echo "</tr>";
 }
 
@@ -62,7 +62,7 @@ while ($row = $result1->fetch_assoc()) {
     echo "<tr>";
     echo "<td>" . $row['acctID'] . "</td>";
     // Hashing emailAdd and username before displaying
-    echo "<td>" . hash('sha256', $row['emailAdd']) . "</td>";
+    echo "<td>" . $row['emailAdd'] . "</td>";
     echo "<td>" . hash('sha256', $row['username']) . "</td>";
     echo "</tr>";
 }
