@@ -1,0 +1,119 @@
+
+body {
+    background-image: url('../images/bg_img.jpg');
+    background-repeat: none;
+    background-size: cover;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.rounded-box {
+    width: 80%;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 25px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.upper-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.image-container {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.image-container img {
+    width: 100%;
+    max-width: 250px;
+}
+
+.nav-container {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.nav-container a {
+    display: block;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: #967259;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.8s ease;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-family: "Arial", Gadget, sans-serif;
+}
+
+.nav-container a:hover {
+    background-color: #634832;
+}
+
+.sticky-nav {
+    flex: 3;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #f2f2f2;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    border-top: 1px solid #ccc;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+.lower-content {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.creator-container {
+    width: 100%;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.creator-container p {
+    margin: 0;
+}
