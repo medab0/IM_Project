@@ -1,3 +1,4 @@
+/* style_report.css */
 
 body {
     background-image: url('../images/bg_img.jpg');
@@ -24,11 +25,10 @@ body {
 }
 
 .image-container {
-    flex: 2;
+    flex:1;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
 }
 
 .image-container img {
@@ -37,12 +37,12 @@ body {
 }
 
 .nav-container {
-    flex: 3;
+    flex: 1; /* Set width to one-third of the container */
     display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: space-around;
     flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
 }
 
 .nav-container a {
@@ -53,9 +53,10 @@ body {
     color: #fff;
     text-decoration: none;
     transition: background-color 0.8s ease;
-    margin-bottom: 10px;
     border-radius: 5px;
     font-family: "Arial", Gadget, sans-serif;
+    width: calc(50% - 10px); /* Two columns with a gap */
+    box-sizing: border-box;
 }
 
 .nav-container a:hover {
@@ -63,15 +64,12 @@ body {
 }
 
 .sticky-nav {
-    flex: 3;
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
     z-index: 1000;
     background-color: #f2f2f2;
     padding: 10px 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    
 }
 
 .tab-content {
@@ -116,4 +114,52 @@ th, td {
 
 .creator-container p {
     margin: 0;
+}
+
+
+
+/* Navbar styles */
+.navbar {
+    background-color: #333;
+    color: #fff;
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+
+.nav-toggle {
+    cursor: pointer;
+    padding: 10px;
+    color: #fff;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+}
+
+.nav-links a:hover {
+    background-color: #555;
+}
+
+.active {
+    left: 0;
 }

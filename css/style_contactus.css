@@ -1,0 +1,38 @@
+body {
+    background-image: url('../images/bg_img.jpg');
+    background-repeat: none;
+    background-size: cover;
+    font-family: 'Poppins',sans-serif;
+
+}
+.rounded-box {
+    width: 50%;
+    background-color: #f2f2f2;
+    padding: 20px 20px 20px 20px;
+    border-radius: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.lower-content{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    margin-top: 20px;
+    padding-bottom: 0;
+}
+
+.creator-container{
+    width: 100%;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

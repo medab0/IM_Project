@@ -1,13 +1,15 @@
 
 <link rel="stylesheet" href="css/style_index_renew.css">
 <title>C.C.C</title>
+
+
 <div class="rounded-box">
     <div class="upper-content">
         <div class="image-container">
             <img src="images/Logo with Background.png" alt="Logo">
         </div>
         <div class="nav-container">
-            
+
             <?php
             include 'connect.php';
             // if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true)
@@ -18,7 +20,7 @@
             echo "<a href='product_renew.php'>Coffee</a>";
             echo "<a href='order.php'>Cart</a>";
             }else{
-                
+
                 echo "<a href='signup.php'>Register</a>";
                 echo "<a href='login.php'>Login</a>";
             }
@@ -34,5 +36,6 @@
 		<p>BSCS - 03 & BSCS - 02</p>
         </div>
     </div>
-    
+
 </div>
+
