@@ -3,13 +3,16 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <title>User Profile</title>
 
-<nav>
-    <ul>
-        <li><a href="index.php">Home</a></li>
-        <li><a href="user-profile.php">Profile</a></li>
-        <!-- Add more links here as needed -->
-    </ul>
-</nav>
+<script src="javascript/script.js"></script>
+<link rel="stylesheet" href="css/style_navbar.css">
+
+<div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="index.php">Home</a>
+</div>
+<div id="main">
+    <button id="NavButton" class="openbtn" onclick="openNav()">&#9776;</button>
+</div>
 
 <div class="rounded-box">
     <div class="upper-content">

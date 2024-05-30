@@ -36,6 +36,7 @@ $connection->close();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Details Report</title>
     <link rel="stylesheet" href="css/style_report.css">
     <script>
@@ -45,10 +46,31 @@ $connection->close();
                 tabs[i].classList.remove('active');
             }
             document.getElementById(tabId).classList.add('active');
-        }
+        };
+
+        function toggleNav() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        };
+
     </script>
 </head>
 <body>
+
+<div class="navbar">
+    <!-- Toggle button -->
+    <div class="nav-toggle" onclick="toggleNav()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <!-- Navigation links -->
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Cart</a>
+        <a href="#">Logout</a>
+    </div>
+</div>
+
 
 <div class="rounded-box">
     <div class="upper-content">
@@ -57,16 +79,15 @@ $connection->close();
         </div>
 
         <div class="sticky-nav">
-        <div class="nav-container">
-            <a href="#" onclick="showTab('userDetailsTab')">User Details</a>
-            <a href="#" onclick="showTab('accountDetailsTab')">Account Details</a>
-            <a href="#" onclick="showTab('subscriptionPlansTab')">Subscription Plans</a>
-            <a href="#" onclick="showTab('coffeeBeansTab')">Coffee Beans</a>
-            <a href="#" onclick="showTab('subscriptionStatisticsTab')">Subscription Statistics</a>
-            <a href="#" onclick="showTab('additionalStatisticsTab')">Additional Statistics</a>
-            
+            <div class="nav-container">
+                <a href="#" onclick="showTab('userDetailsTab')">User Details</a>
+                <a href="#" onclick="showTab('accountDetailsTab')">Account Details</a>
+                <a href="#" onclick="showTab('subscriptionPlansTab')">Subscription Plans</a>
+                <a href="#" onclick="showTab('coffeeBeansTab')">Coffee Beans</a>
+                <a href="#" onclick="showTab('subscriptionStatisticsTab')">Subscription Statistics</a>
+                <a href="#" onclick="showTab('additionalStatisticsTab')">Additional Statistics</a>
+            </div>
         </div>
-    </div>
 
     </div>
     
@@ -154,4 +175,8 @@ $connection->close();
     </div>
 </div>
 
+
+
+
 </body>
+</html>

@@ -1,36 +1,20 @@
-    <link rel="stylesheet" href="css/style_product_renew.css">
+<title>Coffee</title>
+<link rel="stylesheet" href="css/style_product_renew.css">
+    <link rel="stylesheet" href="css/style_navbar.css">
+    <script src="javascript/script.js"></script>
 
-    <title>Coffee</title>
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.php">Home</a>
+        <a href="user-profile.php">Profile</a>
+    </div>
+    <div id="main">
+        <button id="NavButton" class="openbtn" onclick="openNav()">&#9776;</button>
+    </div>
+
 
 
     <div class="rounded-box">
-
-
-        <div class="topnav">
-            <a class="active" href="index.php">Home</a>
-            <a href="prod">News</a>
-            <a href="#products">Products</a>
-            <a href="#about">About</a>
-            <span style="font-size:30px;cursor:pointer" onclick="openNav()">
-            <div class="more-container">
-            <!-- onclick="myFunction(this)" removed -->
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </div>
-            </span>
-            <div id="mySidenav" class="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="login_renew.php">Login</a>
-                <a href="signup_renew.php">Sign Up</a>
-                <a href="#">Contact Us</a>
-                <!-- <a href="#">Contact</a> -->
-            </div>
-        </div>
-
-
-
-
 
     <div class="coffee-container">
 
@@ -118,16 +102,3 @@
 
 
 
-    <script>
-        function myFunction(x) {
-        x.classList.toggle("change");
-        }
-        
-        function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
-        }
-        
-        function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-        }
-    </script>
